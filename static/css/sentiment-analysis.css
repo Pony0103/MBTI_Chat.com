@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* 統一字體 */
+}
+.front-page {
+  font-size: 24px;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  left: 20px; /* 固定首頁按鈕在左側 */
+}
+
+.main_page {
+  position: absolute;
+  left: 20px; /* 將首頁按鈕固定在左上角 */
+  top: 50%;
+  transform: translateY(-50%); /* 垂直居中 */
+  font-size: 24px;
+  font-weight: normal;
+  text-decoration: none;
+  color: black; /* 可調整首頁字體顏色 */
+  cursor: pointer;
+}
+/* 頁首樣式 */
+header.frame {
+  background-color: #d3d3d3;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+  position:relative  
+}
+.front-page:hover{
+  color: dodgerblue;
+}
+
+header .setting {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center; /* 確保文字在按鈕內居中 */
+}
+
+
+/* 增加導航欄與內容區域之間的間距 */
+.main-page-inner {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;  /* 這裡的 padding 增加了上下方向的空間 */
+}
+/* 內容部分樣式 */
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.content ul {
+  list-style-type: decimal;
+  font-size: 18px;
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.note {
+  background-color: #ffeb3b;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.feature {
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.feature h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #00796b;
+}
+.feature p {
+  font-size: 18px; /* 調整字體 */
+}
