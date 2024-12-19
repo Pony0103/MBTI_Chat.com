@@ -41,12 +41,12 @@ app.config['SESSION_TYPE'] = 'filesystem'
 #login_manager= LoginManager()
 
 def create_app():
-
-    HOSTNAME = "127.0.0.1"
-    PORT = 3306
-    USERNAME = "root"
-    PASSWORD = "Ff29098796"
-    DATABASE = "user_db"
+    # 使用環境變數或預設值
+    HOSTNAME = os.environ.get('DB_HOSTNAME', '127.0.0.1')
+    PORT = os.environ.get('DB_PORT', 3306)
+    USERNAME = os.environ.get('DB_USERNAME', 'root')
+    PASSWORD = os.environ.get('DB_PASSWORD', 'Ff29098796')
+    DATABASE = os.environ.get('DB_DATABASE', 'user_db')
     app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?charset=utf8mb4"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'your_secret_key'
@@ -108,14 +108,14 @@ class Message(db.Model):
     content = db.Column(db.String(500))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-@login_manager.user_loader
-def load_user(user_id):
-    return UserACC.query.get(int(user_id))
 
-if __name__=="__main__":  # 如果以主程式執行
+
+if __name__=="__main__":
     from dbmodels import *
     with app.app_context():
         db.create_all()
-    socketio.run(app, debug=True, allow_unsafe_werkzeug=True) # 立刻啟動伺服器
+    # 修改這行
+    port = int(os.environ.get('PORT', 5000))
+    socketio.run(app, host='0.0.0.0', port=port)
 
-export default app;
+
