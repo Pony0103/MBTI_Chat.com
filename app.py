@@ -8,6 +8,8 @@ from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Initialize Flask extensions
 db = SQLAlchemy()
